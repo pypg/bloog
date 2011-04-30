@@ -17,18 +17,58 @@ Google App Engine blog software. (April 20, 2008)
 - Converted WordPress template to Django template.
 - Added variables to draw content from blog software.
 Software available at http://www.github.com/DocSavage/bloogle
+
+Template modified by Max Pippi for the Python Local User Group
+from Perugia, Italy
+
 */
 
 *{margin:0;padding:0;}
-html,body{background:#FFF;color:#333;text-align:center;} 
-body{font:12px arial,helvetica,verdana,sans-serif;}
-h1{font-size:22px;}
+
+body {
+    font-family: 'lucida grande', 'arial', 'trebuchet ms', sans-serif;
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    line-height: 1.125em;
+    color: #000;
+    background: #FFF url(../default/images/body-bg.gif) center top repeat-x;
+}
+
+#header { padding:20px 0 20px 0; }
+#header img { float:left; }
+
+#subtitle {
+    font-size: 1.0em;
+    color: #999;
+    line-height: 140%;
+    margin: 0;
+}
+
+h1 {
+    font-family: georgia;
+    font-size: 2.6em;
+    color: #111;
+    line-height: 100%;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+    font-style: italic;
+}
+
+h1#title {
+    font-style: normal;
+    font-size: 3.2em;
+    font-weight: normal;
+    margin-bottom: 0.2em;
+    color: #111;
+}
+
 h2{font-size:18px;}
 h3{font-size:16px;}
 h4{font-size:14px;}
 a{color:#333;text-decoration:none;}
 a:hover{color:#666;}
-#wrapper{border-top:3px solid #EEE;margin:20px auto;text-align:left;width:965px;} 
+#wrapper{ margin:0px auto;text-align:left;width:965px; }
 #wrapper pre, #wrapper p { clear: none; }  
 th,td{padding:3px 20px 3px 0px;}
 
@@ -68,10 +108,11 @@ li.top a{width:100px;}
 #poweredby {float:right;width:120px;height:30px;}
 
 /* main - middle content and columns */
-#mid{}#mainCol{float:left;margin:26px 0 0 0;width:435px;}
+#mid{}#mainCol{float:left;margin:26px 0 0 0;width:680px;}
 #mid{}#twoCol{float:left;margin:26px 0 0 0;width:649px;}
 
 /* style individual sidebars */
+#midCol {font-size:0.8em;}
 #midCol ul a{font-weight:bold;}
 #midCol{color:#444;float:left;margin:25px 0 0 33px;width:250px;line-height:1.3em;}
 #midCol p{color:#777;}

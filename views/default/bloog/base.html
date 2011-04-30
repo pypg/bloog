@@ -5,36 +5,42 @@
         <title> {{ title }}</title>
         <meta name="generator" content="Bloog {{ bloog_version }}" />
         <link rel="stylesheet" href="/static/default/style.css" type="text/css" media="screen" />
-        <link rel="alternate" type="application/rss+xml" title="{{ blog.title }} RSS Feed" 
+        <link rel="alternate" type="application/rss+xml" title="{{ blog.title }} RSS Feed"
               href="{{ blog.root_url }}{{ blog.master_atom_url }}" />
         <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.5.2/build/assets/skins/sam/skin.css" />
         <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.5.2/build/container/assets/skins/sam/container.css" />
+        <script type="text/javascript">
+             var _gaq = _gaq || [];
+              _gaq.push(['_setAccount', 'UA-18597777-1']);
+              _gaq.push(['_trackPageview']);
+
+              (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+              })();
+        </script>
         {% block head %}
         {% endblock %}
     </head>
     <body class="yui-skin-sam">
         <div id="wrapper">
-            <a name="top"></a>
-            <div id="masthead" class="fix">
-                <h1><a href="/">{{ blog.title }}</a></h1>
-                <div id="authorBlurb">
-                    <img src="/static/default/images/avatar.png" alt="Avatar" />
-                    <p id="authorIntro">
-                        {{ blog.description }}
-                    </p>
-                </div>
+            <div id="header" class="fix">
+                <img class="anyheight" src="/static/images/pypg_logo.png" alt="Python User Group Perugia Official Logo" />
+                <h1 id="title">{{ blog.title }}</h1>
+                <p id="subtitle">{{ blog.description }}</p>
             </div>
             <ul class="nav fix">
                 <li>
                     <a href="/" title="Return to the the frontpage">Home
                         <br/>
-                        <span>Frontpage</span>
+                        <span>Pagina iniziale</span>
                     </a>
                 </li>
                 <li>
-                    <a id="archiveLink" href="#" title="View the archives">Archives
+                    <a id="archiveLink" href="#" title="View the archives">Archivi
                         <br/>
-                        <span>Browse freely</span>
+                        <span>articoli pubblicati</span>
                     </a>
                 </li>
                 {% for link in navlinks %}
@@ -54,17 +60,13 @@
                 <li class="skip">
                     <a href="#main" title="Skip to content">Main
                         <br/>
-                        <span>Skip to content</span>
+                        <span>Vai al dunque</span>
                     </a>
                 </li>
             </ul>
             <div id="archives" class="fix" style="display: none;">
                 <ul class="fix">
-                    <li><a href="/2008">2008</a></li>
-                    <li><a href="/2007">2007</a></li>
-                    <li><a href="/2006">2006</a></li>
-                    <li><a href="/2005">2005</a></li>
-                    <li><a href="/2004">2004</a></li>
+                    <li><a href="/2011">2011</a></li>
                 </ul>
             </div>
 
@@ -72,12 +74,20 @@
                 <!-- First column: Main content -->
                 {% block first_column %}
                 <div id="mainCol" class="fix"><a name="main"></a>
+                {% include 'intro.html' %}
+
+                {% if articles %}
+                    <h2>Ultime dal blog</h2>
+                {% endif %}
+
                 {% for article in articles %}
                     {% include 'article_excerpt.html' %}
                 {% endfor %}
+
                 {% if not articles %}
                     {% include 'bloog_intro.html' %}
                 {% endif %}
+
                 {% include 'pager.html' %}
                 </div>
                 {% endblock %}
@@ -94,9 +104,13 @@
                     </div>
                     {% endblock %}
 
+                    <div class="middle_links">
+                        <iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fpyperugia&amp;width=250&amp;colorscheme=light&amp;show_faces=false&amp;stream=false&amp;header=false&amp;height=70" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:250px; height:70px;" allowTransparency="true"></iframe>
+                    </div>
+
                     {% block tags %}
                     <div class="middle_links">
-                        <h3>Categories</h3>
+                        <h3>Categorie</h3>
                         <p class="tags">
                         {% if blog_tags %}
                             {% for tag in blog_tags %}
@@ -166,9 +180,9 @@
 
                     {% block subscribe %}
                     <div class="middle_links">
-                        <h3>Subscribe</h3>
+                        <h3>RSS</h3>
                         <p>
-                            Stay updated on my meandering thoughts &amp; activities via Atom syndication.
+                            Segui gli articoli del blog.
                         </p>
                         <ul>
                             <li>
@@ -182,9 +196,11 @@
                 {% endblock %}
 
                 <!-- Third column: Show selected external links, ads, etc. -->
+                {% comment %}
                 {% block third_column %}
                 {% include 'ads.html' %}
                 {% endblock %}
+                {% endcomment %}
             </div>
 
             <div id="footer">
@@ -233,12 +249,6 @@
                 </ul>
                 <div id="attribution">
                     <div id="downloadlinks">
-                        <p><a href="http://bloog.billkatz.com">Bloog</a> for 
-                            <a href="http://code.google.com/appengine/">Google App Engine</a> is available at
-                            <a href="http://github.com/DocSavage/bloog">GitHub</a> under an MIT license.</p>
-                        <p>This template is an adapted version of 
-                            <a href="http://5thirtyone.com/grid-focus" title="Grid Focus by: Derek Punsalan">Grid Focus</a>
-                            for <a href="http://www.djangoproject.com/documentation/templates/">Django templates</a>.</p>
                         <p>Cache debugging: Page was rendered {% now "M j, H:i:s" %}.
                         {% if user %}
                           ({{ user.nickname }})

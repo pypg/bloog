@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import os
 import logging
 
@@ -15,13 +16,13 @@ BLOG = {
     "bloog_version": "0.8",
     "html_type": "text/html",
     "charset": "utf-8",
-    "title": "Bloog",
+    "title": "Python User Group Perugia",
     "author": "Bill Katz",
     # This must be the email address of a registered administrator for the 
     # application due to mail api restrictions.
-    "email": "you@foo.com",
-    "description": "A RESTful Blog/Homepage for Google AppEngine.",
-    "root_url": "http://bloog.billkatz.com",
+    "email": "masci@pypg.org",
+    "description": "Un gruppo di appassionati Pythonisti localizzati nei dintorni di Perugia e Provincia.",
+    "root_url": "http://www.pypg.org",
     "master_atom_url": "/feeds/atom.xml",
     # By default, visitors can comment on article for this many days.
     # This can be overridden by setting article.allow_comments
@@ -59,48 +60,30 @@ PAGE = {
     "title": BLOG["title"],
     "articles_per_page": 5,
     "navlinks": [
-        { "title": "Articles", "description": "Bits of Info", 
-          "url": "/articles"},
-        { "title": "Contact", "description": "Send me a note", 
+        { "title": "Note legali", "description": "Licenze ed altro",
+          "url": "/legal"},
+        { "title": "Contatti", "description": "Dicci qualcosa",
           "url": "/contact"},
     ],
     "featuredMyPages": {
-        "title": "Bloog Development",
-        "description": "Get involved",
+        "title": "Come partecipare",
+        "description": "Segui le nostre attività online e partecipa agli incontri mensili",
         "entries": [
-            { "title": "Source Code", 
-              "url": "http://github.com/DocSavage/bloog", 
-              "description": "GitHub repository" },
-            { "title": "Tarball", 
-              "url": "http://github.com/DocSavage/bloog/tarball/master", 
-              "description": "Most recent snapshot" },
-            { "title": "Group", 
-              "url": "http://groups.google.com/group/bloog/topics", 
-              "description": "Developer discussion" },
-            { "title": "Author's Bloog", 
-              "url": "http://www.billkatz.com", 
-              "description": "What's brewing" },
-            { "title": "Architecture Diagram", 
-              "url": "/static/images/architecture2.png", 
-              "description": "RESTful Bloog" }
-        ]
-    },
-    "featuredOthersPages": {
-        "title": "Google App Engine",
-        "description": "Developer Resources",
-        "entries": [
-            { "title": "Google App Engine", 
-              "url": "http://code.google.com/appengine/", 
-              "description": "The mothership" },
-            { "title": "App Engine Group", 
-              "url": "http://groups.google.com/group/google-appengine", 
-              "description": "Developer group" },
-            { "title": "App Engine Open Source", 
-              "url": "http://groups.google.com/group/google-appengine/web/google-app-engine-open-source-projects", 
-              "description": "Code!" },
-            { "title": "App Engine Console", 
-              "url": "http://appengine.google.com", 
-              "description": "Your apps" }
+            { "title": "Mailing list",
+              "url": "http://groups.google.com/group/pypg",
+              "description": "Iscriviti" },
+            { "title": "Twitter",
+              "url": "http://twitter.com/pyperugia",
+              "description": "Seguici" },
+            { "title": "Identica",
+              "url": "http://identi.ca/pypg",
+              "description": "Abbonati" },
+            { "title": "Github",
+              "url": "https://github.com/pypg",
+              "description": "Forka" },
+            { "title": "Facebook",
+              "url": "http://facebook.com/pyperugia",
+              "description": "Like our page" }
         ]
     },
 }
