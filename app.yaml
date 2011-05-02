@@ -43,3 +43,6 @@ skip_files: |
  (license\.txt)|
  (setup.py)
  )$
+
+builtins:
+- remote_api: on
